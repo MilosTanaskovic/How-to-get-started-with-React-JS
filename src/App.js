@@ -24,17 +24,36 @@
 // }
 
 // export default App;
-import React from 'react';
+import React, {useState} from 'react';
 import Tweet from './tweet';
 import './App.css';
 
 function App(){
+
+  const [isRed, setRed] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+    setRed(!isRed);
+  }
+
+  const [users, setUsers] = useState([
+    { name: 'Milos', message: 'Milos1'},
+    { name: 'Gidra', message: 'Gidra1'}
+  ]);
+
   return(
     <div className="tweet">
-      <h2>App</h2>
-      <Tweet name="Miki"/>
-      <Tweet name="Gagi"/>
-      <Tweet name="Mii"/>
+    <h2 className={isRed ? 'red' : ''}>App</h2>
+      <button onClick={increment}>Increment</button>
+      <h1>{count}</h1>
+      {users.map(user => (
+        <Tweet name={user.name} message={user.message}/>,
+        <Tweet name={user.name} message={user.message} />
+      ))}
+       
+      
     </div>
   );
 }
