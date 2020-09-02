@@ -25,13 +25,16 @@
 
 // export default App;
 import React from 'react';
-import Hello from './sayHello';
+import Tweet from './tweet';
+import './App.css';
 
 function App(){
   return(
-    <div>
-      <h2>Milos</h2>
-      <Hello />
+    <div className="tweet">
+      <h2>App</h2>
+      <Tweet name="Miki"/>
+      <Tweet name="Gagi"/>
+      <Tweet name="Mii"/>
     </div>
   );
 }
